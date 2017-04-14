@@ -69,10 +69,9 @@ public class ClassPathResource implements Resource{
 
 	@Override
 	public ClassLoader getClassLoader() {
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		ClassLoader classLoader = getClass().getClassLoader();
 		if(null == classLoader)
 		{
-			classLoader = getClass().getClassLoader();
 			if(null == classLoader)
 			{
 				classLoader = ClassLoader.getSystemClassLoader();
